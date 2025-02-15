@@ -31,7 +31,7 @@ if uploaded_file is not None:
 
     st.subheader("Personagens da obra", divider="rainbow")
     entity_frequency = get_frequency_by_entity_type("PER", reader)
-    print(entity_frequency)
+
     entities_cloud = WordCloud().generate_from_frequencies(entity_frequency)
     st.image(entities_cloud.to_array(), use_container_width="always")
     most_common_character, character_count = sorted(
