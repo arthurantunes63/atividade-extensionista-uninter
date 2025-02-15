@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "uninter-atividade-extensionista-desenvolvimento"
+version = "0.1.0"
+description = ""
+authors = ["Arthur Antunes Ribeiro Machado <arthur.machado@eemovel.com>"]
+readme = "README.md"
+packages = [{include = "uninter_atividade_extensionista_desenvolvimento"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+streamlit = "^1.30.0"
+spacy = "^3.7.2"
+pypdf2 = "^3.0.1"
+wordcloud = "^1.9.3"
+networkx = "^3.2.1"
+matplotlib = "^3.8.2"
+scipy = "^1.12.0"
+plotly = "^5.18.0"
+nbformat = "^5.9.2"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
