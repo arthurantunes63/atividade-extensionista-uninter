@@ -20,19 +20,20 @@ if uploaded_file is not None:
 
     st.subheader("Palavras-chaves da obra", divider="rainbow")
     word_frequency = get_text_keywords_frequency(reader)
-    frequency_cloud = WordCloud().generate_from_frequencies(word_frequency, reader)
-    st.image(frequency_cloud.to_array(), use_column_width="always")
+    frequency_cloud = WordCloud().generate_from_frequencies(word_frequency)
+    st.image(frequency_cloud.to_array(), use_container_width="always")
     most_common_word, word_count = sorted(
         word_frequency.items(), key=lambda x: x[1], reverse=True
     )[0]
     st.caption(
-        f"A palavra com maior frequência foi {most_common_word} possuindo {word_count} citações."
+        f"A palavra com maior frequência foi {most_common_word.title()} possuindo {word_count} citações."
     )
 
     st.subheader("Personagens da obra", divider="rainbow")
     entity_frequency = get_frequency_by_entity_type("PER", reader)
+    print(entity_frequency)
     entities_cloud = WordCloud().generate_from_frequencies(entity_frequency)
-    st.image(entities_cloud.to_array(), use_column_width="always")
+    st.image(entities_cloud.to_array(), use_container_width="always")
     most_common_character, character_count = sorted(
         entity_frequency.items(), key=lambda x: x[1], reverse=True
     )[0]
