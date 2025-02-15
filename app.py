@@ -19,8 +19,8 @@ if uploaded_file is not None:
     reader = PdfReader(uploaded_file)
 
     st.subheader("Palavras-chaves da obra", divider="rainbow")
-    word_frequency = get_text_keywords_frequency()
-    frequency_cloud = WordCloud().generate_from_frequencies(word_frequency)
+    word_frequency = get_text_keywords_frequency(reader)
+    frequency_cloud = WordCloud().generate_from_frequencies(word_frequency, reader)
     st.image(frequency_cloud.to_array(), use_column_width="always")
     most_common_word, word_count = sorted(
         word_frequency.items(), key=lambda x: x[1], reverse=True
@@ -30,7 +30,7 @@ if uploaded_file is not None:
     )
 
     st.subheader("Personagens da obra", divider="rainbow")
-    entity_frequency = get_frequency_by_entity_type("PER")
+    entity_frequency = get_frequency_by_entity_type("PER", reader)
     entities_cloud = WordCloud().generate_from_frequencies(entity_frequency)
     st.image(entities_cloud.to_array(), use_column_width="always")
     most_common_character, character_count = sorted(
@@ -46,7 +46,7 @@ if uploaded_file is not None:
 
     filtered_lexicon = lexico.loc[~lexico["type"].isin(["emot", "htag"])]
     polarity_frequency, word_polarity_frequency = get_polarity_frequency(
-        filtered_lexicon
+        filtered_lexicon, reader
     )
     polarity_frequency_with_labels = {
         POLARITY_TO_LABELS[polarity_frequency]: polarity_count

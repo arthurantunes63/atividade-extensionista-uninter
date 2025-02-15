@@ -21,7 +21,7 @@ POLARITY_TO_LABELS = {
 }
 
 
-def get_polarity_frequency(filtered_lexicon):
+def get_polarity_frequency(filtered_lexicon, reader):
     polarity_frequency = {
         0: 0,
         1: 0,
@@ -48,7 +48,7 @@ def get_polarity_frequency(filtered_lexicon):
     return polarity_frequency, word_polarity_frequency
 
 
-def get_text_keywords_frequency():
+def get_text_keywords_frequency(reader):
     word_frequency = Counter()
     for page_number, page in enumerate(reader.pages[1:]):
         text = page.extract_text()
@@ -68,7 +68,7 @@ def get_text_keywords_frequency():
     return word_frequency
 
 
-def get_frequency_by_entity_type(entity_label: str):
+def get_frequency_by_entity_type(entity_label: str, reader):
     entity_frequency = Counter()
     for page_number, page in enumerate(reader.pages[1:]):
         text = page.extract_text()
