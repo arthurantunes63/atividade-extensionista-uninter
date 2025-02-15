@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Arthur Antunes Ribeiro Machado <arthur.machado@eemovel.com>"]
 readme = "README.md"
-packages = [{include = "uninter_atividade_extensionista_desenvolvimento"}]
+packages = [{include = "atividade_extensionista_uninter"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
