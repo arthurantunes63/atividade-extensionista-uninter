@@ -12,6 +12,7 @@ from atividade_extensionista_uninter.stats_extract import (
     get_top_words_plot,
 )
 
+st.title("Sumarização de dados literários para suporte na análise de obras literárias em língua portuguesa")
 
 uploaded_file = st.file_uploader("Insira o livro (como documento pdf) a ser analisado")
 

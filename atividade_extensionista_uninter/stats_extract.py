@@ -1,9 +1,8 @@
 from collections import Counter
 
-import streamlit as st
 import spacy
 from spacy.lang.pt.stop_words import STOP_WORDS
-
+import plotly.express as px
 
 nlp = spacy.load("pt_core_news_lg")
 
@@ -12,7 +11,6 @@ option_to_label = {
     "Entidade Geopolítica (GPE)": "GPE",
     "Localidade": "LOC",
 }
-st.title("Análise de obras literárias - Extração de valor de dados textuais")
 
 POLARITY_TO_LABELS = {
     0: "neutro",
